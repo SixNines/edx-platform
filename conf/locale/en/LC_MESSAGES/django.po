@@ -12646,7 +12646,7 @@ msgstr ""
 #: lms/templates/courseware/courses.html lms/templates/index.html
 #: themes/stanford-style/lms/templates/index.html
 msgid "Search for a course"
-msgstr ""
+msgstr "Override message (Test)"
 
 #: lms/templates/index_overlay.html
 msgid "Welcome to {platform_name}"
