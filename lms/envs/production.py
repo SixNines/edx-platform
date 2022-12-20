@@ -148,9 +148,9 @@ PLATFORM_DESCRIPTION = ENV_TOKENS.get('PLATFORM_DESCRIPTION') or PLATFORM_DESCRI
 
 CC_MERCHANT_NAME = ENV_TOKENS.get('CC_MERCHANT_NAME', PLATFORM_NAME)
 EMAIL_FILE_PATH = ENV_TOKENS.get('EMAIL_FILE_PATH', None)
-EMAIL_HOST = ENV_TOKENS.get('EMAIL_HOST', 'localhost')  # django default is localhost
-EMAIL_PORT = ENV_TOKENS.get('EMAIL_PORT', 25)  # django default is 25
-EMAIL_USE_TLS = ENV_TOKENS.get('EMAIL_USE_TLS', False)  # django default is False
+EMAIL_HOST = 'email-smtp.us-east-1.amazonaws.com'  # django default is localhost
+EMAIL_PORT = '587'  # django default is 25
+EMAIL_USE_TLS = True  # django default is False
 SITE_NAME = ENV_TOKENS.get('SITE_NAME', SITE_NAME)
 SESSION_COOKIE_DOMAIN = ENV_TOKENS.get('SESSION_COOKIE_DOMAIN')
 SESSION_COOKIE_HTTPONLY = ENV_TOKENS.get('SESSION_COOKIE_HTTPONLY', True)
@@ -163,8 +163,8 @@ DCS_SESSION_COOKIE_SAMESITE_FORCE_ALL = ENV_TOKENS.get('DCS_SESSION_COOKIE_SAMES
 # https://docs.djangoproject.com/en/3.2/ref/settings/#session-cookie-samesite
 SESSION_COOKIE_SAMESITE = DCS_SESSION_COOKIE_SAMESITE
 
-AWS_SES_REGION_NAME = ENV_TOKENS.get('AWS_SES_REGION_NAME', 'us-east-1')
-AWS_SES_REGION_ENDPOINT = ENV_TOKENS.get('AWS_SES_REGION_ENDPOINT', 'email.us-east-1.amazonaws.com')
+AWS_SES_REGION_NAME = 'us-east-1'
+AWS_SES_REGION_ENDPOINT = 'email-smtp.us-east-1.amazonaws.com'
 
 REGISTRATION_EMAIL_PATTERNS_ALLOWED = ENV_TOKENS.get('REGISTRATION_EMAIL_PATTERNS_ALLOWED')
 
@@ -492,8 +492,8 @@ XQUEUE_INTERFACE = AUTH_TOKENS.get('XQUEUE_INTERFACE', XQUEUE_INTERFACE)
 MODULESTORE = convert_module_store_setting_if_needed(AUTH_TOKENS.get('MODULESTORE', MODULESTORE))
 MONGODB_LOG = AUTH_TOKENS.get('MONGODB_LOG', {})
 
-EMAIL_HOST_USER = AUTH_TOKENS.get('EMAIL_HOST_USER', '')  # django default is ''
-EMAIL_HOST_PASSWORD = AUTH_TOKENS.get('EMAIL_HOST_PASSWORD', '')  # django default is ''
+EMAIL_HOST_USER = 'AKIA6JOHXB2VAXNPSPXX'  # django default is ''
+EMAIL_HOST_PASSWORD = 'BKoFqbAm7q4l8SSj6qPQHlysXlHRWSjZUANej9+0JzrU'  # django default is ''
 
 ############################### BLOCKSTORE #####################################
 BLOCKSTORE_API_URL = ENV_TOKENS.get('BLOCKSTORE_API_URL', None)  # e.g. "https://blockstore.example.com/api/v1/"
