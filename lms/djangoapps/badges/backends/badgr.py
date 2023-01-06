@@ -108,15 +108,18 @@ class BadgrBackend(BadgeBackend):
         """
         Create the badge class on Badgr.
         """
+        LOGGER.info("BADGRLOG: badge_class.image value: %s", badge_class.image)
         image = badge_class.image
         # We don't want to bother validating the file any further than making sure we can detect its MIME type,
         # for HTTP. The Badgr-Server should tell us if there's anything in particular wrong with it.
+        LOGGER.info("BADGRLOG: image.name value: %s", image.name)
         content_type, __ = mimetypes.guess_type(image.name)
         if not content_type:
             raise ValueError(
                 "Could not determine content-type of image! Make sure it is a properly named .png file. "
                 "Filename was: {}".format(image.name)
             )
+        LOGGER.info("BADGRLOG: image.path value: %s", image.path)
         with open(image.path, 'rb') as image_file:
             files = {'image': (image.name, image_file, content_type)}
             data = {
@@ -129,6 +132,7 @@ class BadgrBackend(BadgeBackend):
                 data=data, files=files, timeout=settings.BADGR_TIMEOUT)
             self._log_if_raised(result, data)
             try:
+                LOGGER.info("BADGRLOG: result.json() value: %s", result.json())
                 result_json = result.json()
                 badgr_badge_class = result_json['result'][0]
                 badgr_server_slug = badgr_badge_class.get('entityId')
