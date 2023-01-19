@@ -492,8 +492,8 @@ XQUEUE_INTERFACE = AUTH_TOKENS.get('XQUEUE_INTERFACE', XQUEUE_INTERFACE)
 MODULESTORE = convert_module_store_setting_if_needed(AUTH_TOKENS.get('MODULESTORE', MODULESTORE))
 MONGODB_LOG = AUTH_TOKENS.get('MONGODB_LOG', {})
 
-EMAIL_HOST_USER = 'AKIA6JOHXB2VAXNPSPXX'  # django default is ''
-EMAIL_HOST_PASSWORD = 'BKoFqbAm7q4l8SSj6qPQHlysXlHRWSjZUANej9+0JzrU'  # django default is ''
+EMAIL_HOST_USER = AUTH_TOKENS.get('EMAIL_HOST_USER', '')  # django default is ''
+EMAIL_HOST_PASSWORD = AUTH_TOKENS.get('EMAIL_HOST_PASSWORD', '')  # django default is ''
 
 ############################### BLOCKSTORE #####################################
 BLOCKSTORE_API_URL = ENV_TOKENS.get('BLOCKSTORE_API_URL', None)  # e.g. "https://blockstore.example.com/api/v1/"
