@@ -206,7 +206,7 @@ def get_current_theme():
         )
     except ValueError as error:
         # Log exception message and return None, so that open source theme is used instead
-        #logger.exception('Theme not found in any of the themes dirs. [%s]', error)
+        logger.exception('Theme not found in any of the themes dirs. [%s]', error)
         return None
 
 
@@ -222,7 +222,7 @@ def current_request_has_associated_site_theme():
     return bool(site_theme and site_theme.id)
 
 
-def get_theme_base_dir(theme_dir_name, suppress_error=True):
+def get_theme_base_dir(theme_dir_name, suppress_error=False):
     """
     Returns absolute path to the directory that contains the given theme.
 
