@@ -60,13 +60,13 @@ def is_cross_domain_request_allowed(request):
         allow_all or
         referer_origin in getattr(settings, 'CORS_ORIGIN_WHITELIST', [])
     )
-    if not origin_is_whitelisted:
-        log.info(
-            f"Origin {referer_origin!r} was not in `CORS_ORIGIN_WHITELIST`; "
-            f"full referer was {referer!r} and requested host was {request.get_host()!r}; "
-            f"CORS_ORIGIN_ALLOW_ALL={allow_all}"
-        )
-        return False
+    # if not origin_is_whitelisted:
+    #     log.info(
+    #         f"Origin {referer_origin!r} was not in `CORS_ORIGIN_WHITELIST`; "
+    #         f"full referer was {referer!r} and requested host was {request.get_host()!r}; "
+    #         f"CORS_ORIGIN_ALLOW_ALL={allow_all}"
+    #     )
+    #     return False
 
     return True
 
