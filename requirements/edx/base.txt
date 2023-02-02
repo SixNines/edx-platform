@@ -383,6 +383,8 @@ django-webpack-loader==0.7.0
     #   -c requirements/edx/../constraints.txt
     #   -r requirements/edx/base.in
     #   edx-proctoring
+django-wiki @ git+https://github.com/openedx/django-wiki.git@v1.1.4
+    # via -r requirements/edx/github.in
 djangorestframework==3.12.4
     # via
     #   -r requirements/edx/base.in
@@ -1204,8 +1206,6 @@ zipp==3.9.0
     # via
     #   importlib-metadata
     #   importlib-resources
-django-wiki @ git+https://github.com/open-craft/xblock-poll@v1.12.0
-    # via -r requirements/edx/github.in
 
 # The following packages are considered to be unsafe in a requirements file:
 # setuptools
