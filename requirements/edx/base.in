@@ -66,6 +66,7 @@ django-statici18n
 django-storages
 django-user-tasks
 django-waffle
+django-wiki==1.1.4
 django-webpack-loader               # Used to wire webpack bundles into the django asset pipeline
 djangorestframework
 docopt
@@ -177,3 +178,4 @@ xblock-utils                        # Provides utilities used by the Discussion 
 xss-utils                           # https://github.com/edx/edx-platform/pull/20633 Fix XSS via Translations
 enmerkar-underscore                 # Implements a underscore extractor for django-babel.
 xblock-drag-and-drop-v2             # Drag and Drop XBlock
+wiki==1.1.4

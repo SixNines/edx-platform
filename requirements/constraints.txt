@@ -101,3 +101,7 @@ pytz==2022.2.1
 # openedx-events>0.13.0 causes test failures due to breaking changes
 # These broken tests will be fixed in a separate PR
 openedx-events==0.13.0
+
+# Breaks with version 2.0.0
+wiki===1.1.4
+django-wiki===1.1.4
