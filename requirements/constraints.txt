@@ -102,4 +102,5 @@ pytz==2022.2.1
 # These broken tests will be fixed in a separate PR
 openedx-events>=0.13.0
 
-packaging>=21.3
+bleach[css]==5.0.1 # greater version has some breaking changes.
+openedx-django-wiki<2.0.0 # greater version needs bleech >6.0.0
