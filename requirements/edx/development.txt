@@ -90,7 +90,7 @@ billiard==3.6.4.0
     # via
     #   -r requirements/edx/testing.txt
     #   celery
-bleach[css]==5.0.1
+bleach[css]==6.0.0
     # via
     #   -r requirements/edx/testing.txt
     #   django-wiki
@@ -987,10 +987,8 @@ oauthlib==3.0.1
     #   social-auth-core
 openedx-calc==3.0.1
     # via -r requirements/edx/testing.txt
-openedx-django-wiki==1.1.4
-    # via
-    #   -c requirements/edx/../constraints.txt
-    #   -r requirements/edx/testing.txt
+openedx-django-wiki==2.0.0
+    # via -r requirements/edx/testing.txt
 openedx-events==0.13.0
     # via
     #   -c requirements/edx/../constraints.txt

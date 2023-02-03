@@ -757,11 +757,8 @@ oauthlib==3.0.1
     #   social-auth-core
 openedx-calc==3.0.1
     # via -r requirements/edx/base.in
-openedx-django-wiki==1.1.4
+openedx-django-wiki==2.0.0
     # via -r requirements/edx/base.in
-    # via
-    #   -c requirements/edx/../constraints.txt
-    #   -r requirements/edx/base.in
 openedx-events==4.2.0
     # via
     #   -c requirements/edx/../constraints.txt
