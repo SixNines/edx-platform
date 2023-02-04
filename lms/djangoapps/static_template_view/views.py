@@ -16,7 +16,7 @@ from django.utils.safestring import mark_safe
 from django.views.decorators.csrf import ensure_csrf_cookie
 from django.views.defaults import permission_denied
 from mako.exceptions import TopLevelLookupException
-from ratelimit.exceptions import Ratelimited
+from django_ratelimit.exceptions import Ratelimited
 
 from common.djangoapps.edxmako.shortcuts import render_to_response, render_to_string
 from common.djangoapps.util.cache import cache_if_anonymous
