@@ -23,7 +23,7 @@ from django.views.decorators.csrf import csrf_exempt, csrf_protect, ensure_csrf_
 from django.views.decorators.debug import sensitive_post_parameters
 from django.views.decorators.http import require_http_methods
 from edx_django_utils.monitoring import set_custom_attribute
-from ratelimit.decorators import ratelimit
+from django_ratelimit.decorators import ratelimit
 from rest_framework.views import APIView
 
 from openedx_events.learning.data import UserData, UserPersonalData
@@ -492,11 +492,13 @@ def enterprise_selection_page(request, user, next_url):
     key='openedx.core.djangoapps.util.ratelimit.request_post_email_or_username',
     rate=settings.LOGISTRATION_PER_EMAIL_RATELIMIT_RATE,
     method='POST',
+    block=False,
 )  # lint-amnesty, pylint: disable=too-many-statements
 @ratelimit(
     key='openedx.core.djangoapps.util.ratelimit.real_ip',
     rate=settings.LOGISTRATION_RATELIMIT_RATE,
     method='POST',
+    block=False,
 )  # lint-amnesty, pylint: disable=too-many-statements
 def login_user(request, api_version='v1'):  # pylint: disable=too-many-statements
     """

@@ -12,7 +12,7 @@ from django.views.generic import View
 from edx_django_utils import monitoring as monitoring_utils
 from oauth2_provider import views as dot_views
 from ratelimit import ALL
-from ratelimit.decorators import ratelimit
+from django_ratelimit.decorators import ratelimit
 
 from openedx.core.djangoapps.auth_exchange import views as auth_exchange_views
 from openedx.core.djangoapps.oauth_dispatch import adapters
