@@ -11,7 +11,7 @@ from django.core.cache import cache
 from django.db import transaction
 from django.dispatch import receiver
 from edx_toggles.toggles import SettingToggle
-from edx_event_bus_kafka import get_producer
+from openedx_events.event_bus import get_producer
 from opaque_keys.edx.keys import CourseKey
 from openedx_events.content_authoring.data import CourseCatalogData, CourseScheduleData
 from openedx_events.content_authoring.signals import COURSE_CATALOG_INFO_CHANGED
