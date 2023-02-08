@@ -296,6 +296,10 @@ class ChooseModeView(View):
         course_key = CourseKey.from_string(course_id)
         user = request.user
 
+        LOG.info(
+                '[Enrollment issue] Enrolling user: [%s], for course [%s]',
+                 request.user.username, course_id
+            )
         # This is a bit redundant with logic in student.views.change_enrollment,
         # but I don't really have the time to refactor it more nicely and test.
         course = modulestore().get_course(course_key)
