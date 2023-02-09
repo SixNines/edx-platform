@@ -323,7 +323,7 @@ def change_enrollment(request, check_access=True):
     # Get the user
     user = request.user
 
-    log.info('[Enrollment issue] Enrolling user: [%s]. (change_enrollment)', user)
+    log.error('[Enrollment issue] Enrolling user: [%s]. (change_enrollment)', user)
     # Ensure the user is authenticated
     if not user.is_authenticated:
         return HttpResponseForbidden()

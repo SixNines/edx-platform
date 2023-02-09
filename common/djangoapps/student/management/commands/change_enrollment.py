@@ -101,7 +101,7 @@ class Command(BaseCommand):  # lint-amnesty, pylint: disable=missing-class-docst
         """ Update enrollments for a specific user identifier (email or username). """
         users = options[identifier].split(",")
 
-        logger.info('[Enrollment issue] user [%s] (update_enrollments)', identified_user)
+        logger.error('[Enrollment issue] user [%s] (update_enrollments)', identified_user)
 
         credit_provider_attr = {}
         if options['to_mode'] == 'credit':

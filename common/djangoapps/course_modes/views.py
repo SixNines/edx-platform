@@ -296,7 +296,7 @@ class ChooseModeView(View):
         course_key = CourseKey.from_string(course_id)
         user = request.user
 
-        LOG.info(
+        LOG.error(
                 '[Enrollment issue] Enrolling user: [%s], for course [%s]',
                  request.user.username, course_id
             )
