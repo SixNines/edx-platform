@@ -347,6 +347,9 @@ class CourseEnrollment(models.Model):
         if user.id is None:
             user.save()
 
+        log.warning("Entering CourseEnrollment.get_or_create_enrollment(). with email: %s and username: %s", user.email, user.username)
+        log.error("Entering CourseEnrollment.get_or_create_enrollment(). with email: %s and username: %s", user.email, user.username)
+
         enrollment, __ = cls.objects.get_or_create(
             user=user,
             course_id=course_key,
@@ -666,6 +669,9 @@ class CourseEnrollment(models.Model):
 
         Also emits relevant events for analytics purposes.
         """
+
+        log.warning("Entering CourseEnrollment.Enroll(). with email: %s and username: %s", user.email, user.username)
+        log.error("Entering CourseEnrollment.Enroll(). with email: %s and username: %s", user.email, user.username)
         try:
             user, course_key, mode = CourseEnrollmentStarted.run_filter(
                 user=user, course_key=course_key, mode=mode,
@@ -723,6 +729,8 @@ class CourseEnrollment(models.Model):
         enrollment.update_enrollment(is_active=True, mode=mode, enterprise_uuid=enterprise_uuid)
         enrollment.send_signal(EnrollStatusChange.enroll)
 
+        log.warning("sending enrollment event. with email: %s and username: %s", user.email, user.username)
+        log.error("sending enrollment event. with email: %s and username: %s", user.email, user.username)
         # .. event_implemented_name: COURSE_ENROLLMENT_CREATED
         COURSE_ENROLLMENT_CREATED.send_event(
             enrollment=CourseEnrollmentData(
@@ -741,6 +749,9 @@ class CourseEnrollment(models.Model):
                 creation_date=enrollment.created,
             )
         )
+
+        log.warning("enrollment event sent with email: %s and username: %s", user.email, user.username)
+        log.error("enrollment event sent with email: %s and username: %s", user.email, user.username)
 
         return enrollment
 
@@ -773,6 +784,9 @@ class CourseEnrollment(models.Model):
         It is expected that this method is called from a method which has already
         verified the user authentication and access.
         """
+
+        log.warning("Entering CourseEnrollment.enroll_by_email(). with email: %s", email)
+        log.error("Entering CourseEnrollment.enroll_by_email(). with email: %s", email)
         try:
             user = User.objects.get(email=email)
             return cls.enroll(user, course_id, mode)
@@ -852,6 +866,9 @@ class CourseEnrollment(models.Model):
 
         `course_id` is our usual course_id string (e.g. "edX/Test101/2013_Fall)
         """
+
+        log.error("Entering CourseEnrollment.is_enrolled(). with email: %s", user.email)
+        log.warning("Entering CourseEnrollment.is_enrolled(). with email: %s", user.email)
         enrollment_state = cls._get_enrollment_state(user, course_key)
         return enrollment_state.is_active or False
 
@@ -895,6 +912,10 @@ class CourseEnrollment(models.Model):
             and is_active is whether the enrollment is active.
         Returns (None, None) if the courseenrollment record does not exist.
         """
+
+        log.error("Entering CourseEnrollment.enrollment_mode_for_user(). with email: %s", user.email)
+        log.warning("Entering CourseEnrollment.enrollment_mode_for_user(). with email: %s", user.email)
+
         enrollment_state = cls._get_enrollment_state(user, course_id)
         return enrollment_state.mode, enrollment_state.is_active
 
